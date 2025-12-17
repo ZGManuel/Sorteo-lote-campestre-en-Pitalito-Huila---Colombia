@@ -3,66 +3,590 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorteo Lote Campestre Pitalito - Video Oficial</title>
-    <!-- Carga de Tailwind CSS -->
+    <title>Sorteo Lote Campestre - Pitalito, Huila</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <style>
-        /* Configuración de fuente Inter y fondo suave */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap');
+        
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f7f9fb;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f0fdf4; /* emerald-50 */
         }
-        .lot-card {
-            background: linear-gradient(135deg, #ffffff, #f0f4f8);
+
+        /* Chart Container Styling - MANDATORY */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .interactive-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .interactive-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Hide scrollbar for clean horizontal scroll */
+        .hide-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scroll {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
     </style>
+    <!-- Chosen Palette: Emerald (Nature/Land) + Slate (Trust/Legal) + Amber (Warning/Important) -->
+    <!-- Application Structure Plan: 
+         1. Hero Section: Immediate value prop ($30k ticket, 2000m2 Prize) and Call to Action.
+         2. The Prize Dashboard: Visual breakdown of the lot details using icons and grid.
+         3. Gallery: Videos of the location.
+         4. Timeline & Logic Center: Interactive visualization of the dates and the "Threshold Clause" using Chart.js to explain the 20k ticket minimum.
+         5. Payment Hub: Clean, copied-to-clipboard enabled section for the bank details.
+         6. Terms Explorer: Searchable accordion for the legal details.
+    -->
 </head>
-<body class="p-4 sm:p-8">
-    <div class="max-w-4xl mx-auto">
-        <!-- Encabezado de la Aplicación -->
-        <header class="text-center mb-10">
-            <h1 class="text-3xl sm:text-4xl font-extrabold text-green-700 mb-2">
-                🏡 Sorteo Lote Campestre Pitalito 🌳
-            </h1>
-            <p class="text-lg text-gray-600">
-                Visualiza los detalles del Lote 1 en Vereda Mortiñal, Huila.
-            </p>
-        </header>
+<body class="text-slate-800">
 
-        <!-- Sección de Video del Lote -->
-        <div class="lot-card p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-100">
-            <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b pb-2">
-                Video Oficial del Lote Campestre
-            </h2>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-panel shadow-sm border-b border-emerald-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-emerald-700 tracking-tight">EcoSorteo Pitalito</span>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <button onclick="scrollToSection('hero')" class="text-slate-600 hover:text-emerald-600 font-medium transition-colors">Inicio</button>
+                    <button onclick="scrollToSection('prize')" class="text-slate-600 hover:text-emerald-600 font-medium transition-colors">El Lote</button>
+                    <!-- Videos Link -->
+                    <button onclick="scrollToSection('gallery')" class="text-slate-600 hover:text-emerald-600 font-medium transition-colors">Videos</button>
+                    <button onclick="scrollToSection('logic')" class="text-slate-600 hover:text-emerald-600 font-medium transition-colors">Fechas y Reglas</button>
+                    <button onclick="scrollToSection('payment')" class="text-slate-600 hover:text-emerald-600 font-medium transition-colors">Pagos</button>
+                </div>
+                <button onclick="scrollToSection('payment')" class="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2 rounded-full font-bold shadow-lg transition-transform transform active:scale-95">
+                    Participar ($30k)
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-16">
+
+        <!-- Hero Section -->
+        <section id="hero" class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0 bg-gradient-to-br from-emerald-50 to-white opacity-90"></div>
+                <!-- Abstract Pattern Background using CSS gradients instead of images/SVG -->
+                <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#059669 1px, transparent 1px); background-size: 30px 30px;"></div>
+            </div>
             
-            <!-- Contenedor del Iframe con el nuevo enlace -->
-            <div class="relative pt-[56.25%] mb-6"> <!-- Proporción 16:9 para video responsivo -->
-                <!-- El nuevo enlace del Short de YouTube insertado en el iframe embed -->
-                <iframe 
-                    class="absolute top-0 left-0 w-full h-full rounded-xl shadow-2xl"
-                    src="https://www.youtube.com/embed/ckM4brgYBqU"
-                    title="Video del Lote Campestre en Pitalito"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-            </div>
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-800 font-semibold text-sm tracking-wide uppercase border border-emerald-200">
+                    Oportunidad Única en el Huila
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 mb-6 tracking-tight leading-tight">
+                    El lote campestre de tus sueños<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500">Por solo $30.000</span>
+                </h1>
+                <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-600 leading-relaxed">
+                    Participa por 2000m² en la Vereda Mortiñal, Pitalito. <br>
+                    Sin costos ocultos. Transparencia garantizada.
+                </p>
+                
+                <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+                    <button onclick="scrollToSection('prize')" class="px-8 py-4 bg-white text-slate-700 font-bold rounded-xl shadow-md border border-slate-200 hover:bg-slate-50 transition-all">
+                        Ver Detalles del Premio
+                    </button>
+                    <button onclick="scrollToSection('payment')" class="px-8 py-4 bg-emerald-600 text-white font-bold rounded-xl shadow-emerald-500/30 shadow-lg hover:bg-emerald-700 transition-all flex items-center justify-center gap-2">
+                        <span>Adquirir Boleta</span>
+                        <span class="bg-emerald-500 rounded px-2 py-0.5 text-xs">Cupos Limitados</span>
+                    </button>
+                </div>
 
-            <div class="text-center text-gray-500 text-sm italic">
-                El video ha sido actualizado con el Short de YouTube que proporcionaste.
+                <!-- Live Countdown -->
+                <div class="mt-16 glass-panel rounded-2xl p-8 max-w-4xl mx-auto shadow-sm border border-emerald-100">
+                    <h3 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4">Tiempo Restante para Cierre Máximo (31 de Marzo, 2026)</h3>
+                    <div class="grid grid-cols-4 gap-4 text-center" id="countdown-container">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Sección de Información (Ejemplo) -->
-        <div class="mt-10 text-center p-6 bg-blue-50 rounded-xl shadow-md">
-            <h3 class="text-xl font-semibold text-blue-700 mb-3">
-                Información del Sorteo
-            </h3>
-            <p class="text-gray-600">
-                Recuerda revisar los términos y condiciones. Cada boleta tiene un costo de $30.000 COP y la asignación es por doble sorteo.
-            </p>
+        <!-- Prize Details Section -->
+        <section id="prize" class="py-24 bg-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-slate-900 mb-4">El Premio: Lote Campestre</h2>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                        Ubicado en una zona privilegiada de Pitalito, este lote representa una inversión segura y un espacio para tus sueños.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="interactive-card bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:border-emerald-200 group">
+                        <div class="w-14 h-14 bg-emerald-100 rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                            📐
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">2000 m²</h3>
+                        <p class="text-slate-600">Área aproximada total. Espacio suficiente para construir tu casa campestre y zonas verdes.</p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="interactive-card bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:border-emerald-200 group">
+                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                            📍
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Vereda Mortiñal</h3>
+                        <p class="text-slate-600">Ubicación estratégica en Pitalito, Huila. Zona tranquila y de alta valoración.</p>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="interactive-card bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:border-emerald-200 group">
+                        <div class="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                            📝
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Predio legal. Escritura individual</h3>
+                        <p class="text-slate-600">Legalidad garantizada. Propiedad lista para traspaso sin inconvenientes jurídicos.</p>
+                    </div>
+                    <!-- Feature 4 -->
+                    <div class="interactive-card bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:border-emerald-200 group">
+                        <div class="w-14 h-14 bg-teal-100 rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                            🎁
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Costo Cero</h3>
+                        <p class="text-slate-600">El ganador recibe la propiedad sin incurrir en costos de escrituración o impuestos adicionales.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIDEO GALLERY SECTION (Updated) -->
+        <section id="gallery" class="py-24 bg-slate-50 border-t border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="text-emerald-600 font-bold tracking-wider uppercase text-sm">Multimedia</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mt-2">Conoce la Ubicación</h2>
+                    <p class="text-slate-600 mt-4 max-w-2xl mx-auto">
+                        Observa el entorno, las vías de acceso y la topografía del lote a través de nuestros videos.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Video 1 - UPDATED LINK -->
+                    <div class="bg-white p-4 rounded-2xl shadow-lg border border-slate-100">
+                        <div class="aspect-video w-full rounded-xl overflow-hidden bg-black relative group">
+                            <!-- Enlace actualizado: https://youtube.com/shorts/ckM4brgYBqU -->
+                            <iframe 
+                                class="absolute top-0 left-0 w-full h-full rounded-xl shadow-2xl"
+                                src="https://www.youtube.com/embed/ckM4brgYBqU" 
+                                title="Video del Lote 1" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-800 mt-4">Vista Aérea del Lote</h3>
+                        <p class="text-slate-500 text-sm">Recorrido con drone por la Vereda Mortiñal.</p>
+                    </div>
+
+                    <!-- Video 2 - Placeholder kept as original -->
+                    <div class="bg-white p-4 rounded-2xl shadow-lg border border-slate-100">
+                        <div class="aspect-video w-full rounded-xl overflow-hidden bg-black relative group">
+                            <!-- Placeholder for video. Replace 'src' with your YouTube embed URL -->
+                            <iframe 
+                                class="w-full h-full"
+                                src="https://www.youtube.com/embed/ckM4brgYBqU" 
+                                title="Video del Lote 2" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-800 mt-4">Accesos y Vías</h3>
+                        <p class="text-slate-500 text-sm">Así de fácil es llegar a tu futura propiedad.</p>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-8">
+                    <p class="text-xs text-slate-400 italic">
+                        * Nota: Reemplaza los enlaces de arriba con tus videos reales de YouTube/Vimeo.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Logic & Transparency Section -->
+        <section id="logic" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    
+                    <!-- Text Logic -->
+                    <div>
+                        <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-blue-100 text-blue-800 font-semibold text-sm tracking-wide uppercase">
+                            Transparencia Total
+                        </div>
+                        <h2 class="text-4xl font-bold text-slate-900 mb-6">Reglas Claras, Juego Justo</h2>
+                        <p class="text-lg text-slate-600 mb-8">
+                            Hemos diseñado un sistema que garantiza la equidad para todos los participantes. Entiende cómo funciona el umbral de venta y el sorteo.
+                        </p>
+
+                        <!-- Accordion for Logic Details -->
+                        <div class="space-y-4">
+                            <!-- Item 1 -->
+                            <div class="bg-slate-50 rounded-xl shadow-sm overflow-hidden border border-slate-100">
+                                <button onclick="toggleAccordion('logic-1')" class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-100">
+                                    <span class="font-bold text-slate-800">📅 Fechas del Sorteo</span>
+                                    <span class="text-emerald-500 text-xl font-bold">+</span>
+                                </button>
+                                <div id="logic-1" class="hidden px-6 pb-6 text-slate-600 border-t border-slate-200 pt-4">
+                                    <ul class="space-y-2">
+                                        <li><strong>Cierre:</strong> 31 de Marzo, 2026.</li>
+                                        <li><strong>Venta Anticipada:</strong> Si se vende todo antes, sorteamos el domingo siguiente.</li>
+                                        <li><strong>Venta Normal:</strong> Si llegamos a la fecha límite, sorteamos el 5 de Abril, 2026.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Item 2 -->
+                            <div class="bg-slate-50 rounded-xl shadow-sm overflow-hidden border border-slate-100">
+                                <button onclick="toggleAccordion('logic-2')" class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-100">
+                                    <span class="font-bold text-slate-800">📉 Cláusula de Umbral (20.000)</span>
+                                    <span class="text-emerald-500 text-xl font-bold">+</span>
+                                </button>
+                                <div id="logic-2" class="hidden px-6 pb-6 text-slate-600 border-t border-slate-200 pt-4">
+                                    <p>Para garantizar la viabilidad, necesitamos vender mínimo 20.000 puestos. Si al 31 de Marzo de 2026 no se logra, tienes garantía de devolución o reprogramación.</p>
+                                </div>
+                            </div>
+                            <!-- Item 3 -->
+                            <div class="bg-slate-50 rounded-xl shadow-sm overflow-hidden border border-slate-100">
+                                <button onclick="toggleAccordion('logic-3')" class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-100">
+                                    <span class="font-bold text-slate-800">🎲 Doble Sorteo & GNA</span>
+                                    <span class="text-emerald-500 text-xl font-bold">+</span>
+                                </button>
+                                <div id="logic-3" class="hidden px-6 pb-6 text-slate-600 border-t border-slate-200 pt-4">
+                                    <p class="mb-2">Usamos un <strong>Generador de Número Aleatorio (GNA)</strong> certificado.</p>
+                                    <p>Tu número de participación se asigna aleatoriamente (no lo escoges tú), y el ganador también se escoge aleatoriamente. ¡Doble capa de seguridad!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visualization Column -->
+                    <div class="bg-slate-50 p-8 rounded-3xl shadow-lg border border-slate-200">
+                        <div class="mb-6">
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">Meta de Activación</h3>
+                            <p class="text-sm text-slate-500">Visualización del umbral mínimo requerido para realizar el sorteo.</p>
+                        </div>
+                        
+                        <!-- Chart Container -->
+                        <div class="chart-container">
+                            <canvas id="thresholdChart"></canvas>
+                        </div>
+
+                        <div class="mt-6 flex justify-between text-sm text-slate-600 px-4 bg-white py-3 rounded-lg border border-slate-100">
+                            <div class="text-center">
+                                <span class="block font-bold text-red-500">Mínimo</span>
+                                20.000 Puestos
+                            </div>
+                            <div class="text-center border-l border-slate-200 pl-4">
+                                <span class="block font-bold text-emerald-600">Meta Ideal</span>
+                                Venta Total
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Payment Section (Strictly adhering to Markdown Source) -->
+        <section id="payment" class="py-24 bg-emerald-900 text-white relative overflow-hidden">
+            <!-- Background Decoration -->
+            <div class="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-emerald-800 rounded-full opacity-50 blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-teal-800 rounded-full opacity-50 blur-3xl"></div>
+
+            <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl font-bold mb-4">Realiza tu Compra</h2>
+                <p class="text-emerald-100 mb-12 text-lg">
+                    Realiza el pago únicamente a las cuentas autorizadas a nombre de <strong>Manuel Zapata Gonzalez</strong>.
+                </p>
+
+                <!-- Input fields for copying -->
+                <input type="text" id="banco-text" value="45311996774" readonly style="position:absolute; left:-9999px;">
+                <input type="text" id="wallet-text" value="3133329600" readonly style="position:absolute; left:-9999px;">
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Bancolombia Card -->
+                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all cursor-pointer" onclick="copyToClipboard('banco-text', 'banco-msg')">
+                        <div class="text-3xl mb-4">🏦</div>
+                        <h3 class="text-xl font-bold mb-2">Bancolombia</h3>
+                        <p class="text-sm text-emerald-200 mb-4">Cuenta de Ahorros</p>
+                        <div class="bg-black/20 rounded-lg py-3 px-4 font-mono text-2xl font-bold tracking-widest text-white mb-2">
+                            45311996774
+                        </div>
+                        <p id="banco-msg" class="text-xs text-emerald-300 h-4">Clic para copiar número</p>
+                    </div>
+
+                    <!-- Digital Wallets Card -->
+                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all cursor-pointer" onclick="copyToClipboard('wallet-text', 'wallet-msg')">
+                        <div class="text-3xl mb-4">📱</div>
+                        <h3 class="text-xl font-bold mb-2">Nequi / DaviPlata / Bre-B</h3>
+                        <p class="text-sm text-emerald-200 mb-4">Número Celular</p>
+                        <div class="bg-black/20 rounded-lg py-3 px-4 font-mono text-2xl font-bold tracking-widest text-white mb-2">
+                            3133329600
+                        </div>
+                        <p id="wallet-msg" class="text-xs text-emerald-300 h-4">Clic para copiar número</p>
+                    </div>
+                </div>
+
+                <div class="mt-12 bg-white/5 rounded-xl p-6 border border-white/10">
+                    <h4 class="font-bold text-lg mb-2">✅ Pasos para Confirmar</h4>
+                    <ol class="text-left text-emerald-100 space-y-2 list-decimal list-inside mx-auto max-w-md">
+                        <li>Realiza la transferencia por $30.000 COP.</li>
+                        <li>Toma una captura del comprobante.</li>
+                        <li>Envía la captura al WhatsApp <strong>3133329600</strong>.</li>
+                        <li>Recibe tu comprobante (el número aleatorio se sortea al final).</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- Terms Explorer -->
+        <section class="py-16 bg-white">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-bold text-slate-800 mb-8 text-center">Términos y Condiciones Completos</h2>
+                
+                <div class="border rounded-lg divide-y divide-slate-200">
+                    <div class="p-4 bg-slate-50 font-bold text-slate-700">Explorador Legal</div>
+                    <div id="terms-container" class="bg-white p-6 text-sm text-slate-600 leading-relaxed space-y-6">
+                        <!-- Content populated dynamically or statically based on MD -->
+                        <div>
+                            <h4 class="font-bold text-slate-900">1. Objeto</h4>
+                            <p>Sorteo de lote campestre (2000 m²) en Vereda Mortiñal, Pitalito, Huila. Matrícula: 206-93407.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900">2. Participación</h4>
+                            <p>Precio boleta: $30.000. Asignación aleatoria (doble sorteo) para garantizar equidad.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900">3. Entregas</h4>
+                            <p>Costo Cero para el ganador. Entrega libre de deudas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="mb-4">© 2025 Sorteo Lote Campestre Pitalito.</p>
+            <p class="text-xs opacity-50">Este sitio web es informativo. La participación implica la aceptación total de los términos y condiciones.</p>
         </div>
-    </div>
+    </footer>
+
+    <!-- Logic Script -->
+    <script>
+        // State Management
+        const state = {
+            targetDate: new Date('2026-03-31T23:59:59'),
+            minTickets: 20000,
+            ticketPrice: 30000,
+            accountNumber: '45311996774',
+            phone: '3133329600'
+        };
+
+        // Navigation Smooth Scroll
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Accordion Logic
+        function toggleAccordion(id) {
+            const el = document.getElementById(id);
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+            } else {
+                el.classList.add('hidden');
+            }
+        }
+
+        // Clipboard Logic (FIXED to use document.execCommand('copy'))
+        function copyToClipboard(inputId, msgId) {
+            const inputEl = document.getElementById(inputId);
+            inputEl.select();
+            inputEl.setSelectionRange(0, 99999); // For mobile devices
+
+            try {
+                const success = document.execCommand('copy');
+                const msgEl = document.getElementById(msgId);
+                const originalText = "Clic para copiar número"; // Hardcoded original message
+                
+                if (success) {
+                    msgEl.innerText = "¡Copiado al portapapeles!";
+                    msgEl.classList.add('text-white', 'font-bold');
+                } else {
+                    msgEl.innerText = "Error al copiar. Intente manualmente.";
+                    msgEl.classList.add('text-red-300', 'font-bold');
+                }
+
+                setTimeout(() => {
+                    msgEl.innerText = originalText;
+                    msgEl.classList.remove('text-white', 'font-bold', 'text-red-300');
+                }, 2000);
+            } catch (err) {
+                console.error('Error al intentar copiar:', err);
+                const msgEl = document.getElementById(msgId);
+                msgEl.innerText = "Error. Copie manualmente.";
+                msgEl.classList.add('text-red-300', 'font-bold');
+                setTimeout(() => {
+                    msgEl.innerText = "Clic para copiar número";
+                    msgEl.classList.remove('text-red-300', 'font-bold');
+                }, 2000);
+            }
+        }
+
+        // Countdown Logic
+        function updateCountdown() {
+            const now = new Date();
+            const diff = state.targetDate - now;
+
+            if (diff <= 0) {
+                document.getElementById('countdown-container').innerHTML = '<div class="col-span-4 text-2xl font-bold text-red-500">¡Tiempo Agotado!</div>';
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            const timeUnits = [
+                { val: days, label: 'Días' },
+                { val: hours, label: 'Horas' },
+                { val: minutes, label: 'Min' },
+                { val: seconds, label: 'Seg' }
+            ];
+
+            const html = timeUnits.map(unit => `
+                <div class="bg-emerald-50 rounded-xl p-3 border border-emerald-100">
+                    <div class="text-2xl md:text-3xl font-bold text-emerald-700">${unit.val}</div>
+                    <div class="text-xs uppercase text-emerald-500 font-bold">${unit.label}</div>
+                </div>
+            `).join('');
+
+            document.getElementById('countdown-container').innerHTML = html;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+
+        // Chart.js Visualization for Threshold
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('thresholdChart').getContext('2d');
+            
+            // Data simulation: 0 sold currently (start), 20k threshold, 50k potential total
+            // We visualize the "Goal" of 20,000 as a significant milestone
+            
+            const thresholdChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Umbral Mínimo (20k)', 'Venta Adicional Posible'],
+                    datasets: [{
+                        label: 'Distribución de Puestos',
+                        data: [20000, 30000], // 20k min, assuming 50k total capacity like initially discussed, though MD doesn't explicitly limit max, implies selling "totalidad".
+                        backgroundColor: [
+                            'rgba(239, 68, 68, 0.8)', // Red for mandatory threshold
+                            'rgba(16, 185, 129, 0.2)'  // Green transparent for the rest
+                        ],
+                        borderColor: [
+                            'rgba(239, 68, 68, 1)',
+                            'rgba(16, 185, 129, 1)'
+                        ],
+                        borderWidth: 1,
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                font: {
+                                    family: "'Plus Jakarta Sans', sans-serif"
+                                }
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Umbral de Seguridad: 20.000 Puestos',
+                            font: {
+                                size: 16,
+                                family: "'Plus Jakarta Sans', sans-serif",
+                                weight: 'bold'
+                            },
+                            color: '#1e293b'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ` ${context.label}: ${context.raw.toLocaleString()} Puestos`;
+                                }
+                            }
+                        }
+                    },
+                    cutout: '70%'
+                }
+            });
+
+            // Add text inside doughnut
+            Chart.register({
+                id: 'centerText',
+                beforeDraw: function(chart) {
+                    if (chart.config.type !== 'doughnut') return;
+                    var width = chart.width,
+                        height = chart.height,
+                        ctx = chart.ctx;
+            
+                    ctx.restore();
+                    var fontSize = (height / 114).toFixed(2);
+                    ctx.font = "bold " + fontSize + "em sans-serif";
+                    ctx.textBaseline = "middle";
+                    ctx.fillStyle = "#334155";
+            
+                    var text = "Meta 20k",
+                        textX = Math.round((width - ctx.measureText(text).width) / 2),
+                        textY = height / 2;
+            
+                    ctx.fillText(text, textX, textY);
+                    ctx.save();
+                }
+            });
+        });
+
+    </script>
 </body>
 </html>
