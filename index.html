@@ -105,15 +105,6 @@
             pointer-events: none;
         }
 
-        .payment-card {
-            transition: transform 0.2s ease;
-        }
-        
-        .payment-card:hover {
-            transform: scale(1.02);
-        }
-
-        /* Clase para los botones verdes solicitados */
         .btn-green-payment {
             background-color: #10b981;
             color: white;
@@ -122,11 +113,19 @@
         .btn-green-payment:hover {
             background-color: #059669;
         }
+
+        .payment-card {
+            transition: transform 0.2s ease;
+        }
+        
+        .payment-card:hover {
+            transform: scale(1.02);
+        }
     </style>
 </head>
 <body class="text-slate-800">
 
-    <!-- Botón de WhatsApp - Actualizado al número final -->
+    <!-- Botón de WhatsApp -->
     <a href="https://wa.me/573223272797" target="_blank" class="whatsapp-btn">
         <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" viewBox="0 0 16 16">
             <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
@@ -138,7 +137,6 @@
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-2">
                 <div class="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-emerald-200">S</div>
-                <!-- Modificación 1: Nombre en el Nav -->
                 <span class="text-xl font-extrabold text-slate-900 tracking-tight">Sorteo Lote Campestre Pitalito Huila</span>
             </div>
             <div class="hidden lg:flex space-x-8 text-sm font-bold text-slate-500">
@@ -158,7 +156,6 @@
             <div class="inline-flex items-center cost-zero-badge text-white px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-8">
                 Propiedad a Coste Cero
             </div>
-            <!-- Modificación 1: Título Principal -->
             <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 mb-6 leading-tight">
                 Sorteo Lote Campestre <br><span class="text-emerald-600">Pitalito Huila</span>
             </h1>
@@ -247,29 +244,24 @@
             <p class="text-slate-500 mb-12">Participa de forma segura con los siguientes métodos de pago:</p>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                <!-- Bancolombia -->
                 <div class="payment-card bg-white p-8 rounded-[32px] shadow-sm border border-slate-200 relative">
                     <p class="text-[11px] font-black text-slate-400 uppercase mb-3 tracking-widest">Bancolombia Ahorros</p>
                     <p class="text-2xl font-mono font-bold text-slate-800 mb-6">453 1199 6774</p>
-                    <!-- Modificación 2: Color de botón verde -->
                     <button onclick="copy('45311996774', this)" class="w-full py-4 btn-green-payment rounded-2xl font-bold flex items-center justify-center space-x-2">
                         <span>Copiar Cuenta</span>
                     </button>
                     <div class="copy-feedback">¡Copiado!</div>
                 </div>
 
-                <!-- Nequi -->
                 <div class="payment-card bg-white p-8 rounded-[32px] shadow-sm border border-slate-200 relative">
                     <p class="text-[11px] font-black text-slate-400 uppercase mb-3 tracking-widest">Nequi</p>
                     <p class="text-2xl font-mono font-bold text-slate-800 mb-6">322 327 2797</p>
-                    <!-- Modificación 2: Color de botón verde -->
                     <button onclick="copy('3223272797', this)" class="w-full py-4 btn-green-payment rounded-2xl font-bold flex items-center justify-center space-x-2">
                         <span>Copiar Número</span>
                     </button>
                     <div class="copy-feedback">¡Copiado!</div>
                 </div>
 
-                <!-- Bre-B -->
                 <div class="payment-card bg-white p-8 rounded-[32px] shadow-sm border border-slate-200 relative">
                     <p class="text-[11px] font-black text-emerald-600 uppercase mb-3 tracking-widest">Bre-B</p>
                     <p class="text-2xl font-mono font-bold text-slate-800 mb-6">322 327 2797</p>
@@ -285,7 +277,6 @@
                 <p class="text-emerald-100/80 mb-8 text-sm">
                     Pagos a nombre de <strong class="text-white">Manuel Zapata Gonzalez</strong>. Después de pagar, pulsa el botón de abajo para enviar el comprobante por WhatsApp.
                 </p>
-                <!-- Modificación 3: Número de WhatsApp Actualizado a 322 327 2797 -->
                 <a href="https://wa.me/573223272797" target="_blank" class="inline-flex items-center space-x-3 bg-white text-emerald-900 px-12 py-4 rounded-2xl font-extrabold hover:bg-emerald-50 transition-all">
                     <span>Enviar Comprobante</span>
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" /></svg>
@@ -294,26 +285,63 @@
         </div>
     </section>
 
-    <!-- Términos -->
+    <!-- Términos y Condiciones Integrados -->
     <section class="py-12 px-6">
         <div class="max-w-4xl mx-auto border-t border-slate-100 pt-12">
             <button onclick="toggleTerms()" class="flex items-center justify-between w-full py-4 text-left">
-                <span class="text-xl font-extrabold text-slate-900">Legalidad y Condiciones</span>
+                <span class="text-xl font-extrabold text-slate-900">Legalidad y Condiciones del Sorteo</span>
                 <svg id="terms-icon" class="w-6 h-6 transition-transform text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
             </button>
-            <div id="terms-content" class="terms-details py-6 text-sm text-slate-600 space-y-6 border-b border-slate-50 mb-8">
-                <div class="space-y-2">
-                    <h4 class="font-bold text-slate-900">1. Premio Garantizado</h4>
-                    <p>Lote de 2.000m² con escritura individual. El ganador recibe la propiedad sin deudas y con servicios al día en el punto de conexión.</p>
+            <div id="terms-content" class="terms-details py-6 text-sm text-slate-600 space-y-8 border-b border-slate-50 mb-8 leading-relaxed">
+                
+                <div class="space-y-3">
+                    <h4 class="font-bold text-slate-900 text-base">1. Objeto del Sorteo</h4>
+                    <p>El presente documento establece los términos y condiciones que rigen la participación en el sorteo de un (1) lote campestre con un área aproximada de 2.000 metros cuadrados, ubicado en Pitalito, Huila, en la vereda Mortiñal. El predio cuenta con escritura individual y se encuentra al día por concepto de impuestos y demás tributos.</p>
                 </div>
-                <div class="space-y-2">
-                    <h4 class="font-bold text-slate-900">2. Gastos de Traspaso</h4>
-                    <p>El organizador cubre el 100% de los gastos notariales y de registro. El ganador no debe pagar nada adicional para recibir su escritura.</p>
+
+                <div class="space-y-3">
+                    <h4 class="font-bold text-slate-900 text-base">2. Participación y Adquisición de Boletas</h4>
+                    <p><strong>Precio de la Boleta:</strong> $30.000 COP.</p>
+                    <p><strong>Asignación de Puestos:</strong> La asignación de los números de participación se realizará mediante un proceso de doble sorteo (o sorteo aleatorio). Esto garantiza que la asignación de cada número a un comprador sea completamente al azar, asegurando la equidad del proceso desde el inicio.</p>
+                    <p>La asignación de puestos se hará efectiva tras la venta de la totalidad de los mismos o al cumplirse el plazo máximo estipulado.</p>
                 </div>
-                <div class="space-y-2">
-                    <h4 class="font-bold text-slate-900">3. Fecha del Sorteo</h4>
-                    <p>Programado para el 31 de mayo de 2026. Se requiere una participación mínima estipulada para la realización del mismo.</p>
+
+                <div class="space-y-3">
+                    <h4 class="font-bold text-slate-900 text-base">3. Plazos, fechas y condiciones del sorteo 🗓️</h4>
+                    <p><strong>3.1. Plazo Máximo de Venta:</strong> El plazo máximo para la venta de la totalidad de las boletas es el 31 de mayo de 2026.</p>
+                    <p><strong>3.2. Fecha del Sorteo:</strong> Se determinará bajo las siguientes condiciones:</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Venta total anticipada:</strong> Si se venden todos los puestos antes de la fecha límite, el sorteo se realizará el domingo siguiente a la confirmación de la última venta.</li>
+                        <li><strong>Fecha límite alcanzada:</strong> Si el 31 de mayo de 2026 no se han vendido todos los puestos, el sorteo se realizará ese mismo domingo, siempre y cuando se haya vendido un número mínimo de puestos suficiente para cubrir los costos del proceso.</li>
+                    </ul>
+                    <div class="bg-amber-50 border-l-4 border-amber-400 p-4 mt-4">
+                        <p class="font-bold text-amber-900">Cláusula de umbral mínimo de venta:</p>
+                        <p class="text-amber-800">Para hacer efectivo el sorteo, se requiere un umbral mínimo de 20.000 puestos vendidos. De no alcanzarse, el domingo 7 de junio de 2026 se indicará una nueva fecha posterior o se procederá a la devolución del importe en un plazo no mayor a seis (6) meses.</p>
+                    </div>
                 </div>
+
+                <div class="space-y-3">
+                    <h4 class="font-bold text-slate-900 text-base">4. Metodología y Transparencia ✨</h4>
+                    <p><strong>Mecanismo:</strong> El número ganador se seleccionará mediante un Generador de Número Aleatorio (GNA) certificado o de uso reconocido para garantizar trazabilidad y transparencia.</p>
+                    <p><strong>Verificación:</strong> El proceso será documentado y/o transmitido en vivo vía Facebook/Instagram para libre verificación de los participantes.</p>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="font-bold text-slate-900 text-base">5. Entrega del Premio</h4>
+                    <p><strong>Ganador:</strong> Será el participante cuyo número asignado coincida con el generado por el GNA.</p>
+                    <p><strong>Costo Cero:</strong> El ganador recibirá la propiedad sin incurrir en costos adicionales de escrituración o impuestos de registro; estos son asumidos por el organizador.</p>
+                    <p><strong>Contacto:</strong> El organizador contactará al ganador en un plazo máximo de cinco (5) días hábiles tras el sorteo.</p>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="font-bold text-slate-900 text-base">6. Medios de Venta Oficiales</h4>
+                    <p>Las cuentas y medios de pago están únicamente a nombre de <strong>Manuel Zapata Gonzalez</strong>:</p>
+                    <ul class="list-disc pl-5">
+                        <li>Cuenta de ahorros Bancolombia: 453 1199 6774</li>
+                        <li>Nequi / Llave Bre-B: 322 327 2797</li>
+                    </ul>
+                </div>
+
             </div>
         </div>
     </section>
