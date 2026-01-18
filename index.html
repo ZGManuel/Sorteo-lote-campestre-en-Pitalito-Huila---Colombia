@@ -1,378 +1,105 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorteo Lote Campestre - Pitalito, Huila</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap');
-        
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #f8fafc;
-        }
-
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .hero-gradient {
-            background: radial-gradient(circle at top right, #ecfdf5, #ffffff);
-        }
-
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 0px 10px 25px rgba(37, 211, 102, 0.3);
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1) translateY(-5px);
-        }
-
-        .cost-zero-badge {
-            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
-        }
-
-        .feature-card {
-            transition: transform 0.3s ease;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-8px);
-        }
-
-        .terms-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
-        }
-        
-        .terms-content.open {
-            max-height: 3000px;
-            transition: max-height 0.5s ease-in;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorteo Lote Campestre en Pitalito</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; line-height:1.6; }
+    header { background:#2e7d32; color:#fff; padding:40px 20px; text-align:center; }
+    header h1 { font-size:2.5em; margin:0; }
+    header p { font-size:1.2em; }
+    .btn { display:inline-block; background:#fbc02d; color:#000; padding:15px 25px; margin-top:20px; text-decoration:none; font-weight:bold; border-radius:5px; }
+    section { padding:40px 20px; max-width:900px; margin:auto; }
+    h2 { color:#2e7d32; }
+    ul { list-style:none; padding:0; }
+    ul li { margin:10px 0; }
+    .video-container { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+    .video-container iframe { width:420px; height:240px; border:none; }
+    footer { background:#eee; text-align:center; padding:20px; margin-top:40px; }
+    .sticky-btn { position:fixed; bottom:20px; right:20px; background:#fbc02d; color:#000; padding:15px 25px; border-radius:50px; text-decoration:none; font-weight:bold; }
+  </style>
 </head>
-<body class="text-slate-900 antialiased">
+<body>
 
-    <!-- Botón WhatsApp -->
-    <a href="https://wa.me/573133329600" target="_blank" class="whatsapp-float">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-        </svg>
-    </a>
+  <!-- Hero Section -->
+  <header>
+    <h1>🌿 El lote de tus sueños por solo $30.000</h1>
+    <p>Participa en el sorteo de un lote campestre de 2.000 m² en Pitalito, Huila.<br>
+    Premio con <strong>coste cero</strong>: escrituras, impuestos y trámites totalmente cubiertos.</p>
+    <a href="#metodos-pago" class="btn">Adquirir boleta</a>
+  </header>
 
-    <!-- Nav -->
-    <nav class="fixed top-0 w-full z-50 glass-panel shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex items-center space-x-2">
-                    <div class="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center text-white font-bold">L</div>
-                    <span class="text-xl font-bold text-slate-800 tracking-tight">Lote Pitalito</span>
-                </div>
-                <button onclick="scrollToSection('payment')" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-xl font-bold shadow-md transition-all text-sm">
-                    Comprar $30k
-                </button>
-            </div>
-        </div>
-    </nav>
+  <!-- Características -->
+  <section>
+    <h2>🏡 Características del lote</h2>
+    <ul>
+      <li>📏 Área: 2.000 m²</li>
+      <li>📍 Ubicación: Vereda Mortiñal, Pitalito – Huila</li>
+      <li>📜 Legalidad: Escritura individual, impuestos al día</li>
+      <li>💰 Premio coste cero: sin gastos de escrituración ni impuestos adicionales</li>
+    </ul>
+  </section>
 
-    <!-- Main -->
-    <main class="pt-16">
+  <!-- Cómo participar -->
+  <section>
+    <h2>🎟️ Cómo participar</h2>
+    <ol>
+      <li>Compra tu boleta por $30.000.</li>
+      <li>Recibe tu número mediante doble sorteo aleatorio.</li>
+      <li>El ganador se elige con un Generador de Número Aleatorio certificado.</li>
+      <li>Transmisión en vivo por Facebook/Instagram para transparencia.</li>
+    </ol>
+  </section>
 
-        <!-- Hero: Enfoque en COSTE CERO -->
-        <section class="hero-gradient py-20 px-4 text-center">
-            <div class="max-w-4xl mx-auto">
-                <div class="inline-block cost-zero-badge text-white px-6 py-2 rounded-full text-sm font-extrabold uppercase tracking-widest mb-6">
-                    Premio a Coste Cero
-                </div>
-                <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 mb-6 leading-tight">
-                    Tu Lote Campestre <br><span class="text-emerald-600 italic">Sin Gastos Extras</span>
-                </h1>
-                <p class="text-xl text-slate-600 mb-10 max-w-2xl mx-auto">
-                    Participa por un terreno de 2000m² en el corazón del Huila. El ganador recibe las escrituras 100% pagas.
-                </p>
-                
-                <!-- Countdown -->
-                <div class="bg-white p-8 rounded-3xl shadow-xl border border-slate-100 max-w-xl mx-auto mb-12">
-                    <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Cierre del Sorteo</p>
-                    <div class="grid grid-cols-4 gap-4" id="countdown-timer">
-                        <!-- JS inject -->
-                    </div>
-                </div>
+  <!-- Métodos de pago -->
+  <section id="metodos-pago">
+    <h2>💳 Métodos de pago</h2>
+    <p><strong>A nombre de Manuel Zapata González</strong></p>
+    <ul>
+      <li>🏦 Bancolombia (Ahorros): 453 1199 6774</li>
+      <li>📱 Nequi / Daviplata / Llave Bre-B: 322 327 2797</li>
+    </ul>
+    <a href="https://wa.me/573223272797" class="btn">Confirmar pago en WhatsApp</a>
+  </section>
 
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <button onclick="scrollToSection('lot-details')" class="px-8 py-4 bg-white text-emerald-600 border-2 border-emerald-600 font-bold rounded-2xl hover:bg-emerald-50 transition-all">Ver Características</button>
-                    <button onclick="scrollToSection('payment')" class="px-8 py-4 bg-emerald-600 text-white font-bold rounded-2xl shadow-lg hover:shadow-emerald-200 transition-all">Participar Ahora</button>
-                </div>
-            </div>
-        </section>
+  <!-- Fechas importantes -->
+  <section>
+    <h2>📅 Fechas importantes</h2>
+    <ul>
+      <li>Plazo máximo de venta: 31 de mayo de 2026</li>
+      <li>Sorteo: domingo siguiente a la venta total o el 31 de mayo de 2026</li>
+      <li>Umbral mínimo: 20.000 boletas vendidas</li>
+      <li>Si no se cumple: devolución en máximo 6 meses</li>
+    </ul>
+  </section>
 
-        <!-- Características del Lote -->
-        <section id="lot-details" class="py-24 bg-white">
-            <div class="max-w-7xl mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Detalles del Inmueble</h2>
-                    <p class="text-slate-500">Todo lo que necesitas saber sobre tu futura propiedad</p>
-                </div>
+  <!-- Transparencia -->
+  <section>
+    <h2>✨ Transparencia y confianza</h2>
+    <p>Documentación legal publicada (matrícula, certificado de tradición, paz y salvo).<br>
+    Transmisión en vivo del sorteo.<br>
+    Proceso documentado y verificable.</p>
+  </section>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Area -->
-                    <div class="feature-card p-8 rounded-3xl bg-slate-50 border border-slate-100">
-                        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mb-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">2.000 m² de Terreno</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">Espacio ideal para construir una casa de campo, huerta orgánica y zonas recreativas. Terreno con topografía aprovechable.</p>
-                    </div>
+  <!-- Videos de referencia -->
+  <section>
+    <h2>🎥 Conoce la ubicación y acceso al lote</h2>
+    <div class="video-container">
+      <!-- Video de ubicación -->
+      <iframe src="https://www.youtube.com/embed/3zYf5ZpYw8M" title="Ubicación del lote"></iframe>
+      <!-- Video de acceso -->
+      <iframe src="https://www.youtube.com/embed/0xZ8XvXcW9Y" title="Acceso al lote"></iframe>
+    </div>
+  </section>
 
-                    <!-- Ubicacion -->
-                    <div class="feature-card p-8 rounded-3xl bg-slate-50 border border-slate-100 text-white bg-emerald-900">
-                        <div class="w-12 h-12 bg-emerald-800 text-emerald-400 rounded-2xl flex items-center justify-center mb-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243m10.121-10.121a2 2 0 010 2.828L11.828 15.657m-4.243-4.243a2 2 0 010-2.828m8.486 0L17 10.5M12 12h.01" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-white">Pitalito, Huila</h3>
-                        <p class="text-emerald-100 text-sm leading-relaxed">Ubicado en la <strong>Vereda Mortiñal</strong>. Una zona de alta valorización, clima templado excepcional y rodeada de naturaleza.</p>
-                    </div>
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Sorteo Lote Campestre en Pitalito – Todos los derechos reservados</p>
+  </footer>
 
-                    <!-- Documentacion -->
-                    <div class="feature-card p-8 rounded-3xl bg-slate-50 border border-slate-100">
-                        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mb-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Legalidad Total</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">Matrícula Inmobiliaria <strong>206-93407</strong>. Propiedad libre de gravámenes, lista para escrituración inmediata tras el sorteo.</p>
-                    </div>
-                </div>
+  <!-- Sticky Button -->
+  <a href="#metodos-pago" class="sticky-btn">🎟️ Adquirir boleta</a>
 
-                <!-- Concepto Coste Cero -->
-                <div class="mt-16 bg-emerald-50 rounded-3xl p-8 md:p-12 border border-emerald-100 flex flex-col md:flex-row items-center gap-8">
-                    <div class="text-center md:text-left flex-1">
-                        <h3 class="text-2xl font-bold text-emerald-900 mb-4 italic">"El concepto de COSTE CERO"</h3>
-                        <p class="text-emerald-800 leading-relaxed">
-                            A diferencia de otros sorteos, aquí el ganador no debe preocuparse por impuestos de ganancia ocasional, gastos de notaría o registro. 
-                            <strong>Nosotros cubrimos el 100% de los trámites legales</strong> para que recibas tu lote sin desembolsar un solo peso adicional.
-                        </p>
-                    </div>
-                    <div class="w-24 h-24 bg-emerald-600 rounded-full flex items-center justify-center text-white font-bold text-3xl shadow-lg shrink-0">
-                        $0
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Galería Videos -->
-        <section class="py-20 bg-slate-900">
-            <div class="max-w-7xl mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center text-white mb-12">Conoce el terreno</h2>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="rounded-3xl overflow-hidden aspect-[9/16] max-h-[500px] mx-auto bg-black shadow-2xl">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/ggokOQfDipc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="rounded-3xl overflow-hidden aspect-[9/16] max-h-[500px] mx-auto bg-black shadow-2xl">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/ckM4brgYBqU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Pago -->
-        <section id="payment" class="py-24 bg-white">
-            <div class="max-w-4xl mx-auto px-4 text-center">
-                <h2 class="text-4xl font-extrabold mb-4">Adquiere tu Puesto</h2>
-                <p class="text-slate-500 mb-12">Cada boleta cuesta solo $30.000 COP</p>
-                
-                <div class="grid md:grid-cols-2 gap-6 mb-12">
-                    <div class="p-8 rounded-3xl border-2 border-emerald-100 bg-white hover:border-emerald-500 transition-colors">
-                        <p class="text-xs font-bold text-slate-400 uppercase tracking-tighter mb-2">Bancolombia (Ahorros)</p>
-                        <p class="text-3xl font-mono font-bold text-slate-800 mb-6">45311996774</p>
-                        <button onclick="copy('45311996774')" class="w-full py-3 bg-slate-100 rounded-xl font-bold text-slate-600 hover:bg-slate-200 transition-all">Copiar Cuenta</button>
-                    </div>
-                    <div class="p-8 rounded-3xl border-2 border-emerald-100 bg-white hover:border-emerald-500 transition-colors">
-                        <p class="text-xs font-bold text-slate-400 uppercase tracking-tighter mb-2">Nequi / Daviplata</p>
-                        <p class="text-3xl font-mono font-bold text-slate-800 mb-6">3133329600</p>
-                        <button onclick="copy('3133329600')" class="w-full py-3 bg-slate-100 rounded-xl font-bold text-slate-600 hover:bg-slate-200 transition-all">Copiar Número</button>
-                    </div>
-                </div>
-
-                <div class="bg-slate-900 rounded-3xl p-8 text-white relative overflow-hidden">
-                    <div class="relative z-10">
-                        <h4 class="text-xl font-bold mb-4">¿Ya realizaste el pago?</h4>
-                        <p class="text-slate-400 mb-8 text-sm">Envía el comprobante para asignarte tu número de suerte.</p>
-                        <a href="https://wa.me/573133329600" target="_blank" class="inline-flex items-center gap-3 px-10 py-5 bg-[#25d366] rounded-2xl font-bold text-lg hover:scale-105 transition-transform">
-                            <span>Confirmar en WhatsApp</span>
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.77 0 1.264.408 2.433 1.096 3.393l-.463 1.694 1.742-.457a5.72 5.72 0 0 0 3.392.1.1.1 0 0 0 .1.1 0 0 0 .1.1 0 0 0 .1.1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 .1 0 0 0 . 12 11.75c0 3.184 2.586 5.77 5.77 5.77 1.256 0 2.422-.403 3.376-1.087l1.7.445-.444-1.654c.725-.975 1.155-2.176 1.155-3.474 0-3.184-2.586-5.77-5.77-5.77z"/></svg>
-                        </a>
-                    </div>
-                    <div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Términos Mejorados -->
-        <section id="terms" class="py-20 bg-slate-50 border-t border-slate-200">
-            <div class="max-w-4xl mx-auto px-4">
-                <button onclick="toggleTerms()" class="w-full flex justify-between items-center py-4 text-left group">
-                    <h3 class="text-2xl font-bold text-slate-800 group-hover:text-emerald-600 transition-colors">Términos, Metodología y Documentación</h3>
-                    <span id="terms-toggle-icon" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm border border-slate-100 transition-transform">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-                    </span>
-                </button>
-
-                <div id="terms-content" class="terms-content">
-                    <div class="space-y-8 pt-8 pb-12 text-sm text-slate-600 leading-relaxed">
-                        
-                        <!-- Seccion 1 -->
-                        <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm">
-                            <h4 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                <span class="w-6 h-6 bg-emerald-100 text-emerald-600 rounded flex items-center justify-center text-[10px]">01</span>
-                                Metodología de Sorteo y Transparencia
-                            </h4>
-                            <p class="mb-4">Para garantizar la equidad absoluta, utilizaremos un sistema de <strong>Doble Sorteo Aleatorio</strong>:</p>
-                            <ul class="list-disc pl-5 space-y-2">
-                                <li><strong>Asignación:</strong> Al comprar, se le asigna un número de registro.</li>
-                                <li><strong>Validación:</strong> El sorteo se realizará mediante un Generador de Números Aleatorios (GNA) certificado.</li>
-                                <li><strong>Transmisión:</strong> Se emitirá en vivo por redes sociales (Facebook/Instagram Live) para que todos los participantes vean el proceso en tiempo real.</li>
-                            </ul>
-                        </div>
-
-                        <!-- Seccion 2 -->
-                        <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm">
-                            <h4 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                <span class="w-6 h-6 bg-emerald-100 text-emerald-600 rounded flex items-center justify-center text-[10px]">02</span>
-                                Documentación Legal del Premio
-                            </h4>
-                            <p>El terreno cuenta con toda la documentación al día en la oficina de instrumentos públicos de Pitalito:</p>
-                            <ul class="list-disc pl-5 mt-4 space-y-2">
-                                <li>Certificado de Tradición y Libertad vigente.</li>
-                                <li>Paz y Salvo de impuesto predial municipal.</li>
-                                <li>Escritura pública lista para ser transferida al nuevo titular.</li>
-                                <li><strong>Carga Cero:</strong> El organizador asume los gastos notariales, impuestos de registro y rentas.</li>
-                            </ul>
-                        </div>
-
-                        <!-- Seccion 3 -->
-                        <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm">
-                            <h4 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                <span class="w-6 h-6 bg-emerald-100 text-emerald-600 rounded flex items-center justify-center text-[10px]">03</span>
-                                Condiciones de Realización (Umbral)
-                            </h4>
-                            <p>El sorteo está sujeto a un umbral mínimo de venta de <strong>20.000 puestos</strong>. Si para el <strong>30 de mayo de 2026</strong> no se ha alcanzado este número:</p>
-                            <ul class="list-disc pl-5 mt-4 space-y-2">
-                                <li>Se podrá prorrogar el tiempo de venta hasta por 180 días.</li>
-                                <li>En caso de cancelación definitiva, se garantiza la devolución del valor de la boleta (descontando costos de transacción bancaria).</li>
-                            </ul>
-                        </div>
-
-                        <div class="italic text-center text-xs text-slate-400">
-                            Última actualización: Enero 2026. Al participar, aceptas estos términos en su totalidad.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="bg-slate-900 py-12 text-center">
-        <p class="text-slate-500 text-xs">Sorteo Lote Campestre - Pitalito, Huila © 2026</p>
-    </footer>
-
-    <script>
-        // Copy to clipboard
-        function copy(text) {
-            const el = document.createElement('textarea');
-            el.value = text;
-            document.body.appendChild(el);
-            el.select();
-            document.execCommand('copy');
-            document.body.removeChild(el);
-            
-            const btn = event.target;
-            const original = btn.innerText;
-            btn.innerText = "¡Copiado!";
-            btn.classList.add('bg-emerald-500', 'text-white');
-            setTimeout(() => {
-                btn.innerText = original;
-                btn.classList.remove('bg-emerald-500', 'text-white');
-            }, 2000);
-        }
-
-        // Toggle Terms
-        function toggleTerms() {
-            const content = document.getElementById('terms-content');
-            const icon = document.getElementById('terms-toggle-icon');
-            content.classList.toggle('open');
-            icon.style.transform = content.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
-        }
-
-        // Smooth Scroll
-        function scrollToSection(id) {
-            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Countdown Timer
-        function initCountdown() {
-            const target = new Date('2026-05-30T23:59:59');
-            
-            function update() {
-                const now = new Date();
-                const diff = target - now;
-
-                if (diff <= 0) {
-                    document.getElementById('countdown-timer').innerHTML = "<div class='col-span-4 font-bold text-red-500'>Sorteo en curso / Finalizado</div>";
-                    return;
-                }
-
-                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-                const mins = Math.floor((diff / (1000 * 60)) % 60);
-                const secs = Math.floor((diff / 1000) % 60);
-
-                const data = [
-                    { label: 'Días', val: days },
-                    { label: 'Horas', val: hours },
-                    { label: 'Mins', val: mins },
-                    { label: 'Segs', val: secs }
-                ];
-
-                document.getElementById('countdown-timer').innerHTML = data.map(i => `
-                    <div class="flex flex-col">
-                        <span class="text-2xl md:text-3xl font-extrabold text-slate-800">${String(i.val).padStart(2, '0')}</span>
-                        <span class="text-[10px] uppercase font-bold text-slate-400 tracking-tighter">${i.label}</span>
-                    </div>
-                `).join('');
-            }
-
-            setInterval(update, 1000);
-            update();
-        }
-
-        window.onload = initCountdown;
-    </script>
 </body>
 </html>
