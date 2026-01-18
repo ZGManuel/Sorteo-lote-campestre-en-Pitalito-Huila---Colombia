@@ -1,105 +1,109 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sorteo Lote Campestre en Pitalito</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin:0; padding:0; line-height:1.6; }
-    header { background:#2e7d32; color:#fff; padding:40px 20px; text-align:center; }
-    header h1 { font-size:2.5em; margin:0; }
-    header p { font-size:1.2em; }
-    .btn { display:inline-block; background:#fbc02d; color:#000; padding:15px 25px; margin-top:20px; text-decoration:none; font-weight:bold; border-radius:5px; }
-    section { padding:40px 20px; max-width:900px; margin:auto; }
-    h2 { color:#2e7d32; }
-    ul { list-style:none; padding:0; }
-    ul li { margin:10px 0; }
-    .video-container { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
-    .video-container iframe { width:420px; height:240px; border:none; }
-    footer { background:#eee; text-align:center; padding:20px; margin-top:40px; }
-    .sticky-btn { position:fixed; bottom:20px; right:20px; background:#fbc02d; color:#000; padding:15px 25px; border-radius:50px; text-decoration:none; font-weight:bold; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteo Lote Campestre Pitalito</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --verde-campestre: #2d5a27;
+            --dorado-legal: #b8860b;
+        }
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('TU-IMAGEN-DEL-LOTE.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        .legal-banner {
+            background-color: #f8f9fa;
+            border-left: 5px solid var(--dorado-legal);
+            padding: 40px 0;
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--verde-campestre);
+            margin-bottom: 15px;
+        }
+        .btn-whatsapp {
+            background-color: #25d366;
+            color: white;
+            font-weight: bold;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .btn-whatsapp:hover { background-color: #128c7e; color: white; }
+        .metodo-pago {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            transition: 0.3s;
+        }
+        .metodo-pago:hover { border-color: var(--verde-campestre); }
+    </style>
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <header>
-    <h1>🌿 El lote de tus sueños por solo $30.000</h1>
-    <p>Participa en el sorteo de un lote campestre de 2.000 m² en Pitalito, Huila.<br>
-    Premio con <strong>coste cero</strong>: escrituras, impuestos y trámites totalmente cubiertos.</p>
-    <a href="#metodos-pago" class="btn">Adquirir boleta</a>
-  </header>
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Gana tu propio refugio campestre en Pitalito</h1>
+            <p class="lead">2.000 m² de paraíso por solo $30.000 COP</p>
+            <div class="mt-4">
+                <a href="#participar" class="btn btn-primary btn-lg px-5">PARTICIPAR AHORA</a>
+            </div>
+        </div>
+    </section>
 
-  <!-- Características -->
-  <section>
-    <h2>🏡 Características del lote</h2>
-    <ul>
-      <li>📏 Área: 2.000 m²</li>
-      <li>📍 Ubicación: Vereda Mortiñal, Pitalito – Huila</li>
-      <li>📜 Legalidad: Escritura individual, impuestos al día</li>
-      <li>💰 Premio coste cero: sin gastos de escrituración ni impuestos adicionales</li>
-    </ul>
-  </section>
+    <section class="legal-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h2 class="fw-bold" style="color: var(--dorado-legal);">
+                        <i class="fas fa-shield-check"></i> 100% LEGALIDAD • 0% RIESGOS
+                    </h2>
+                    <p class="fs-5">Propiedad con <strong>Matrícula Inmobiliaria independiente</strong> y tradición verificada. El premio incluye el traspaso directo en Notaría con todos los gastos de escrituración cubiertos por nosotros.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="p-3 bg-white rounded shadow-sm">
+                        <small class="text-muted d-block">ESTADO JURÍDICO</small>
+                        <span class="badge bg-success fs-6">SANEADO Y LISTO PARA TRASPASO</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Cómo participar -->
-  <section>
-    <h2>🎟️ Cómo participar</h2>
-    <ol>
-      <li>Compra tu boleta por $30.000.</li>
-      <li>Recibe tu número mediante doble sorteo aleatorio.</li>
-      <li>El ganador se elige con un Generador de Número Aleatorio certificado.</li>
-      <li>Transmisión en vivo por Facebook/Instagram para transparencia.</li>
-    </ol>
-  </section>
-
-  <!-- Métodos de pago -->
-  <section id="metodos-pago">
-    <h2>💳 Métodos de pago</h2>
-    <p><strong>A nombre de Manuel Zapata González</strong></p>
-    <ul>
-      <li>🏦 Bancolombia (Ahorros): 453 1199 6774</li>
-      <li>📱 Nequi / Daviplata / Llave Bre-B: 322 327 2797</li>
-    </ul>
-    <a href="https://wa.me/573223272797" class="btn">Confirmar pago en WhatsApp</a>
-  </section>
-
-  <!-- Fechas importantes -->
-  <section>
-    <h2>📅 Fechas importantes</h2>
-    <ul>
-      <li>Plazo máximo de venta: 31 de mayo de 2026</li>
-      <li>Sorteo: domingo siguiente a la venta total o el 31 de mayo de 2026</li>
-      <li>Umbral mínimo: 20.000 boletas vendidas</li>
-      <li>Si no se cumple: devolución en máximo 6 meses</li>
-    </ul>
-  </section>
-
-  <!-- Transparencia -->
-  <section>
-    <h2>✨ Transparencia y confianza</h2>
-    <p>Documentación legal publicada (matrícula, certificado de tradición, paz y salvo).<br>
-    Transmisión en vivo del sorteo.<br>
-    Proceso documentado y verificable.</p>
-  </section>
-
-  <!-- Videos de referencia -->
-  <section>
-    <h2>🎥 Conoce la ubicación y acceso al lote</h2>
-    <div class="video-container">
-      <!-- Video de ubicación -->
-      <iframe src="https://www.youtube.com/embed/3zYf5ZpYw8M" title="Ubicación del lote"></iframe>
-      <!-- Video de acceso -->
-      <iframe src="https://www.youtube.com/embed/0xZ8XvXcW9Y" title="Acceso al lote"></iframe>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2026 Sorteo Lote Campestre en Pitalito – Todos los derechos reservados</p>
-  </footer>
-
-  <!-- Sticky Button -->
-  <a href="#metodos-pago" class="sticky-btn">🎟️ Adquirir boleta</a>
-
-</body>
-</html>
+    <section class="py-5">
+        <div class="container text-center">
+            <h2 class="mb-5">Detalles del Terreno</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <i class="fas fa-expand-arrows-alt feature-icon"></i>
+                    <h4>2.000 m²</h4>
+                    <p>Extensión total con topografía ideal.</p>
+                </div>
+                <div class="col-md-3">
+                    <i class="fas fa-map-marker-alt feature-icon"></i>
+                    <h4>Pitalito</h4>
+                    <p>Ubicado en la prestigiosa Vereda Mortiñal.</p>
+                </div>
+                <div class="col-md-3">
+                    <i class="fas fa-file-signature feature-icon"></i>
+                    <h4>Escritura</h4>
+                    <p>Documentación al día para traspaso inmediato.</p>
+                </div>
+                <div class="col-md-3">
+                    <i class="fas fa-bolt feature-icon"></i>
+                    <h4>Servicios</h4>
+                    <p>Factibilidad de agua y energía eléctrica.</p>
+                </div>
+            </div>
+        </div>
+    </section>
