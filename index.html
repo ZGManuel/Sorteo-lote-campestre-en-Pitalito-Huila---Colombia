@@ -281,7 +281,7 @@
                 <p><strong>1. Objeto:</strong> Sorteo de lote de 2.000m² en Vereda Mortiñal, Pitalito.</p>
                 <p><strong>2. Valor:</strong> $30.000 COP por puesto adquirido.</p>
                 <p><strong>3. Metodología:</strong> Asignación aleatoria mediante GNA (Generador de Número Aleatorio) certificado.</p>
-                <p><strong>4. Plazo:</strong> El sorteo se realizará al vender la totalidad de los puestos o el 31 de mayo de 2026.</p>
+                <p><strong>4. Plazo:</strong> El sorteo se realizará al vender la totalidad de los puestos o el <strong>5 de julio de 2026</strong>.</p>
                 <p><strong>5. Ganador:</strong> Recibe la propiedad con escritura individual al día y coste cero en trámites de traspaso.</p>
             </div>
         </div>
@@ -353,12 +353,15 @@
             }
         }
 
-        // Timer
+        // Timer - Actualizado al 5 de Julio de 2026
         function updateTimer() {
-            const target = new Date('2026-05-31T23:59:59').getTime();
+            const target = new Date('2026-07-05T23:59:59').getTime();
             const now = new Date().getTime();
             const diff = target - now;
-            if (diff <= 0) return;
+            if (diff <= 0) {
+                document.getElementById('timer').innerHTML = `<div class="col-span-4 text-emerald-600 font-bold">¡Sorteo en curso!</div>`;
+                return;
+            };
 
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
